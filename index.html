@@ -8,6 +8,23 @@
   <style>
     body {margin:0;font-family:Arial, sans-serif;line-height:1.6;color:#333;}
 
+    /* HEADER */
+    header {
+      background:#0f2548;
+      padding:10px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    header img {height:50px;}
+    header nav a {
+      color:#fff;
+      margin:0 10px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+    header nav a:hover {text-decoration:underline;}
+
     /* HERO */
     .hero {
       background: url('hero-bg.jpg') no-repeat center center/cover;
@@ -26,10 +43,7 @@
       top:0;left:0;width:100%;height:100%;
       background: rgba(0,0,0,0.5);
     }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
+    .hero-content {position: relative;z-index: 2;}
     .hero h1 {font-size: 3rem;margin-bottom: 10px;}
     .hero p {font-size: 1.3rem;margin-bottom: 20px;}
     .hero a {
@@ -39,15 +53,19 @@
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
-      transition: background 0.3s;
     }
     .hero a:hover {background:#ffa500;}
 
-    /* WHY CHOOSE US */
-    #why {
-      padding:60px 20px;text-align:center;
-      background:#f9f9f9;
+    /* SERVICES */
+    #services {padding:60px 20px;text-align:center;}
+    #services h2 {font-size:2rem;margin-bottom:20px;}
+    .service {
+      margin-bottom:40px;
     }
+    .service img {width:100%;max-width:600px;border-radius:10px;}
+
+    /* WHY CHOOSE US */
+    #why {padding:60px 20px;text-align:center;background:#f9f9f9;}
     #why h2 {font-size:2rem;margin-bottom:20px;}
     .why-us {
       display:grid;
@@ -56,41 +74,24 @@
       margin-top:20px;
     }
     .point {
-      background:#fff;
-      padding:16px;
-      border-radius:10px;
-      font-weight:600;
-      font-size:16px;
-      color:#0f2548;
+      background:#fff;padding:16px;border-radius:10px;
+      font-weight:600;font-size:16px;color:#0f2548;
       box-shadow:0 4px 12px rgba(0,0,0,0.08);
     }
 
     /* TESTIMONIALS */
-    #testimonials {
-      padding:60px 20px;
-      background:#fff;
-      text-align:center;
-    }
+    #testimonials {padding:60px 20px;background:#fff;text-align:center;}
     #testimonials h2 {font-size:2rem;margin-bottom:20px;}
     .testimonial-grid {
       display:grid;
       grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap:20px;
-      margin-top:20px;
+      gap:20px;margin-top:20px;
     }
     .testimonial {
-      background:#f9f9f9;
-      padding:20px;
-      border-radius:10px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.08);
-      font-style:italic;
+      background:#f9f9f9;padding:20px;border-radius:10px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);font-style:italic;
     }
-    .testimonial span {
-      display:block;
-      margin-top:10px;
-      font-weight:bold;
-      color:#444;
-    }
+    .testimonial span {display:block;margin-top:10px;font-weight:bold;color:#444;}
 
     /* FOOTER */
     footer {
@@ -103,7 +104,17 @@
 </head>
 <body>
 
-  <!-- HERO SECTION -->
+  <!-- HEADER -->
+  <header>
+    <img src="DOMILTD.jpg" alt="DomiLTD Logo">
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#testimonials">Testimonials</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <h1>Building Quality, Creating Trust</h1>
@@ -113,10 +124,27 @@
   </section>
 
   <main>
-    <!-- SERVICES & SLIDERS (faqja jote ekzistuese mbetet këtu) -->
+    <!-- SERVICES -->
     <section id="services">
-      <h2 style="text-align:center;margin:40px 0;">Our Services</h2>
-      <p style="text-align:center;">(këtu mbeten slider-at dhe fotot që ke futur vetë)</p>
+      <h2>Our Services</h2>
+
+      <div class="service">
+        <h3>Bathroom</h3>
+        <img src="bathroom1.jpg" alt="Bathroom project">
+        <p>Unlock the hidden potential of your property with our bespoke bathroom reconstruction services.</p>
+      </div>
+
+      <div class="service">
+        <h3>Kitchen Replacement</h3>
+        <img src="kitchen1.jpg" alt="Kitchen project">
+        <p>Revitalize your culinary space with our kitchen replacement service.</p>
+      </div>
+
+      <div class="service">
+        <h3>Roof Extensions</h3>
+        <img src="roof1.jpg" alt="Roof extension project">
+        <p>Expand your living space and elevate your home's appeal with our roof extension service.</p>
+      </div>
     </section>
 
     <!-- WHY CHOOSE US -->
@@ -149,6 +177,7 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <p>© 2024 DomiLTD. All rights reserved.</p>
   </footer>
