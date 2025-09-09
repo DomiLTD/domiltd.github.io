@@ -33,6 +33,40 @@
     .slider button.next{right:8px}
 
     footer{text-align:center; padding:20px; font-size:14px; color:#666;}
+
+    /* ===== Modal Style ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 300px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .modal-content a {
+      display:block;
+      margin-top:10px;
+      text-decoration:none;
+      color:#0f2548;
+      font-weight:600;
+    }
+    .close {
+      float: right;
+      font-size: 22px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -42,9 +76,9 @@
     <h1>DomiLTD Construction</h1>
     <p class="slogan">Quality Construction & Renovation Services in London</p>
     <div class="header-actions">
-      <a href="mailto:domilondon46@gmail.com">📧 Email Us</a>
-      <a href="tel:+447415843156">📞 Call Now</a>
-      <a href="https://www.instagram.com/domiconstruction" target="_blank">📷 Instagram</a>
+      <a href="#" onclick="openModal('email'); return false;">📧 Email Us</a>
+      <a href="#" onclick="openModal('phone'); return false;">📞 Call Now</a>
+      <a href="#" onclick="openModal('insta'); return false;">📷 Instagram</a>
     </div>
   </header>
 
@@ -83,7 +117,7 @@
             <button class="next">❯</button>
           </div>
           <strong>Kitchen Replacement</strong>
-          <p>Revitalize your culinary space with our kitchen replacement service, tailored to seamlessly integrate modern functionality with timeless design, creating the heart of your home anew.</p>
+          <p>Revitalize your culinary space with our kitchen replacement service, tailored to seamlessly integrate modern functionality with timeless design.</p>
         </div>
 
         <div class="service">
@@ -94,7 +128,7 @@
             <button class="next">❯</button>
           </div>
           <strong>Plumbing & Electrical</strong>
-          <p>Restoring functionality and safety to your home, our plumbing repair and electrical service delivers reliable solutions with expert precision, ensuring peace of mind for you and your family.</p>
+          <p>Restoring functionality and safety to your home with reliable solutions and expert precision.</p>
         </div>
 
         <div class="service">
@@ -105,7 +139,7 @@
             <button class="next">❯</button>
           </div>
           <strong>Brickwork</strong>
-          <p>Transforming your vision into enduring beauty, our brickwork service delivers meticulous craftsmanship and timeless elegance to every project.</p>
+          <p>Transforming your vision into enduring beauty with meticulous craftsmanship and timeless elegance.</p>
         </div>
 
         <div class="service">
@@ -116,7 +150,7 @@
             <button class="next">❯</button>
           </div>
           <strong>Painting</strong>
-          <p>Transform your space with our expert paint service, where every brushstroke is infused with precision and passion, bringing vibrancy and life to your walls.</p>
+          <p>Transform your space with our expert paint service, bringing vibrancy and life to your walls.</p>
         </div>
 
         <div class="service">
@@ -127,7 +161,7 @@
             <button class="next">❯</button>
           </div>
           <strong>Roof Extensions</strong>
-          <p>Expand your living space and elevate your home's appeal with our roof extension service, seamlessly blending innovative design and expert craftsmanship to create a stylish and functional addition to your property.</p>
+          <p>Expand your living space and elevate your home's appeal with innovative design and expert craftsmanship.</p>
         </div>
       </div>
     </section>
@@ -137,9 +171,38 @@
     © <span id="year"></span> DomiLTD — All rights reserved
   </footer>
 
+  <!-- ===== Modals ===== -->
+  <div id="emailModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('email')">&times;</span>
+      <p><strong>Email Us:</strong></p>
+      <p>domilondon46@gmail.com</p>
+      <a href="mailto:domilondon46@gmail.com">Send Email</a>
+    </div>
+  </div>
+
+  <div id="phoneModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('phone')">&times;</span>
+      <p><strong>Call Now:</strong></p>
+      <p>+44 7415 843156</p>
+      <a href="tel:+447415843156">Call</a>
+    </div>
+  </div>
+
+  <div id="instaModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('insta')">&times;</span>
+      <p><strong>Follow us on Instagram:</strong></p>
+      <p>@constructiondomi</p>
+      <a href="https://www.instagram.com/constructiondomi" target="_blank">Visit Profile</a>
+    </div>
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Slider logic
     document.querySelectorAll('.slider').forEach(slider => {
       const images = slider.querySelectorAll('img');
       const prev = slider.querySelector('.prev');
@@ -160,6 +223,22 @@
         showImage(current);
       });
     });
+
+    // Modal logic
+    function openModal(type) {
+      document.getElementById(type+'Modal').style.display = 'block';
+    }
+    function closeModal(type) {
+      document.getElementById(type+'Modal').style.display = 'none';
+    }
+    window.onclick = function(event) {
+      ['email','phone','insta'].forEach(type=>{
+        let modal = document.getElementById(type+'Modal');
+        if (event.target == modal) {
+          closeModal(type);
+        }
+      });
+    }
   </script>
 </body>
 </html>
